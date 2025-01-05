@@ -2,6 +2,8 @@ import Image from "next/image"
 import React from "react"
 import SearchInput from "./SearchInput"
 import NavItems from "./NavItems"
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
+import { Button } from "./ui/button"
 
 const Navbar = () => {
   return (
@@ -17,6 +19,16 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <div>
             <NavItems />
+          </div>
+          <div>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <Button className="rounded-full" variant={"secondary"}>
+                <SignInButton />
+              </Button>
+            </SignedOut>
           </div>
         </div>
       </div>
