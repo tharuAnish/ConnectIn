@@ -11,13 +11,13 @@ const Navbar = () => {
       <div className="flex items-center max-w-6xl justify-between h-14 mx-auto px-3">
         <div className="flex items-center gap-2">
           <Image src={"/Linkedin_icon.png"} alt="Logo" width={35} height={35} />
-          <div>
+          <div className="hidden md:block">
             <SearchInput />
           </div>
         </div>
 
         <div className="flex items-center gap-5">
-          <div>
+          <div className="md:block hidden">
             <NavItems />
           </div>
           <div>
