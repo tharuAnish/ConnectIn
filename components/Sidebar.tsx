@@ -1,10 +1,9 @@
 import Image from "next/image"
 import React from "react"
-import ProfilePhoto from "./shared/ProfilePhoto"
 
 const Sidebar = ({ user }: { user: any }) => {
   return (
-    <div className="hidden md:block w-[20%] border  bg-white rounded">
+    <div className="hidden md:block w-[20%] border  bg-white rounded-xl">
       <div className="flex relative flex-col items-center">
         <div className="w-full h-16 overflow-hidden">
           {user && (
@@ -13,13 +12,19 @@ const Sidebar = ({ user }: { user: any }) => {
               alt="Banner"
               width={200}
               height={200}
-              className="w-full h-full rounded-t"
+              className="w-full h-full rounded-t-xl"
             />
           )}
         </div>
 
-        <div className="my-1 absolute top-10 ">
-          <ProfilePhoto src={user ? user?.imageUrl : "/banner.png"} />
+        <div className="my-1 absolute top-7">
+          <Image
+            src={user ? user?.imageUrl : "/banner.png"}
+            alt="Profile Image"
+            width={60}
+            height={60}
+            className="rounded-full border-2 "
+          />
         </div>
         <div className="border-b">
           <div className="p-2 mt-5 text-center">
