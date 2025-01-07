@@ -44,8 +44,12 @@ export function PostDialog({
     const inputText = formData.get("inputText") as string
     try {
       await createPostAction(inputText, selectedFile)
+      setInputText("")
+      setSelectedFile("")
+      setOpen(false)
     } catch (error) {
-      console.log("Error occured", error)
+      console.error("Error occurred while creating the post:", error)
+      alert("Failed to create post. Please try again.")
     }
   }
 
@@ -65,9 +69,7 @@ export function PostDialog({
               className="rounded-full border-2 "
             />
             <div>
-              <DialogTitle>
-                <h4>Anish Tharu</h4>
-              </DialogTitle>
+              <DialogTitle>Anish Tharu</DialogTitle>
               <p className="text-xs">Post to anyone</p>
             </div>
           </div>

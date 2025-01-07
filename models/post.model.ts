@@ -39,6 +39,10 @@ const postSchema = new mongoose.Schema<IPostDocument>(
         required: true,
       },
     },
+    imageUrl: {
+      type: String,
+      default: "",
+    },
     likes: {
       type: [String],
     },
