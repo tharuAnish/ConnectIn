@@ -5,7 +5,7 @@ import React from "react"
 const PostContent = ({ post }: { post: IPost }) => {
   return (
     <div className="my-3">
-      <p className="my-3 px-4">{post?.description}</p>
+      <p className="my-3 px-4 text-gray-800 text-sm">{post?.description}</p>
       {post?.imageUrl && (
         <Image
           src={post?.imageUrl}

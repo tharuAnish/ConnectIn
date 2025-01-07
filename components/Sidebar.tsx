@@ -3,7 +3,7 @@ import React from "react"
 
 const Sidebar = ({ user }: { user: any }) => {
   return (
-    <div className="hidden md:block w-[20%] border  bg-white rounded-xl">
+    <div className="hidden md:block w-[20%] border  bg-white rounded-xl h-fit">
       <div className="flex relative flex-col items-center">
         <div className="w-full h-16 overflow-hidden">
           {user && (
