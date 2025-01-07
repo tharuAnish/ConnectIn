@@ -13,6 +13,7 @@ import { Textarea } from "./ui/textarea"
 import { ImageIcon } from "lucide-react"
 import { useRef, useState } from "react"
 import { readFileAsDataUrl } from "@/lib/utils"
+import { createPostAction } from "@/lib/serveractions"
 
 export function PostDialog({
   setOpen,
@@ -25,12 +26,26 @@ export function PostDialog({
 }) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [selectedFile, setSelectedFile] = useState<string>("")
+  const [inputText, setInputText] = useState<string>("")
+
+  const changeHandler = (e: any) => {
+    setInputText(e.target.value)
+  }
 
   const fileChangeHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
       const dataUrl = await readFileAsDataUrl(file)
       setSelectedFile(dataUrl)
+    }
+  }
+
+  const postActionHndler = async (formData: FormData) => {
+    const inputText = formData.get("inputText") as string
+    try {
+      await createPostAction(inputText, selectedFile)
+    } catch (error) {
+      console.log("Error occured", error)
     }
   }
 
@@ -51,17 +66,19 @@ export function PostDialog({
             />
             <div>
               <DialogTitle>
-                <h1>Anish Tharu</h1>
+                <h4>Anish Tharu</h4>
               </DialogTitle>
               <p className="text-xs">Post to anyone</p>
             </div>
           </div>
         </DialogHeader>
-        <form action="">
+        <form action={postActionHndler}>
           <div className="flex flex-col">
             <Textarea
               id="name"
               name="inputText"
+              value={inputText}
+              onChange={changeHandler}
               className="focus-visible:ring-0"
               placeholder="What do you want to talk about?"
             />
