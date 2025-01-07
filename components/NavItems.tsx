@@ -15,28 +15,28 @@ interface NAVITEMS {
 
 const navItems: NAVITEMS[] = [
   {
-    src: "/home",
-    icon: <Home />,
+    src: "/",
+    icon: <Home size={19} />,
     text: "Home",
   },
   {
     src: "/networks",
-    icon: <Users />,
+    icon: <Users size={19} />,
     text: "My Network",
   },
   {
     src: "/job",
-    icon: <BriefcaseBusiness />,
+    icon: <BriefcaseBusiness size={19} />,
     text: "Jobs",
   },
   {
     src: "/message",
-    icon: <MessageCircleMore />,
+    icon: <MessageCircleMore size={19} />,
     text: "Messaging",
   },
   {
     src: "/notification",
-    icon: <Bell />,
+    icon: <Bell size={19} />,
     text: "Notification",
   },
 ]
@@ -48,10 +48,10 @@ const NavItems = () => {
         return (
           <div
             key={index}
-            className="flex flex-col items-center cursor-pointer text-[#666666] hover:text-black"
+            className="flex flex-col items-center justify-center cursor-pointer text-[#666666] hover:text-black"
           >
             <span>{navItem.icon}</span>
-            <Link href={navItem.src} className="text-xs">
+            <Link href={navItem.src} className="text-[11px]">
               {navItem.text}
             </Link>
           </div>

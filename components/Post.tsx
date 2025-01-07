@@ -10,9 +10,13 @@ import ProfilePhoto from "./shared/ProfilePhoto"
 import ReactTimeAgo from "react-time-ago"
 import TimeAgo from "javascript-time-ago"
 import en from "javascript-time-ago/locale/en.json"
+import { deletePostAction } from "@/lib/serveractions"
+import { useUser } from "@clerk/nextjs"
 
 const Post = ({ post }: { post: IPostDocument }) => {
+  const { user } = useUser()
   const fullName = post?.user?.firstName + " " + post?.user?.lastName
+  const loggedInUser = user?.id === post?.user?.userId
   // Register the locale
   TimeAgo.addDefaultLocale(en)
 
@@ -35,13 +39,18 @@ const Post = ({ post }: { post: IPostDocument }) => {
           </div>
         </div>
         <div>
-          <Button
-            className="rounded-full  text-gray-500"
-            size={"icon"}
-            variant={"outline"}
-          >
-            <Trash2 />
-          </Button>
+          {loggedInUser && (
+            <Button
+              onClick={() => {
+                const res = deletePostAction(post._id)
+              }}
+              className="rounded-full  text-gray-500"
+              size={"icon"}
+              variant={"outline"}
+            >
+              <Trash2 />
+            </Button>
+          )}
         </div>
       </div>
 
