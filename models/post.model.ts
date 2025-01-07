@@ -5,7 +5,7 @@ import { IComment } from "./comment.model"
 export interface IPost {
   description: string
   user: IUser
-  imageUrl?: String
+  imageUrl?: string
   likes?: string[]
   comments?: IComment[]
 }

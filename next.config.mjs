@@ -5,8 +5,20 @@ const nextConfig = {
       bodySizeLimit: "20mb", // Set desired value here
     },
   },
+  // images: {
+  //   domains: ["img.clerk.com"],
+  // },
   images: {
-    domains: ["img.clerk.com"], // Add the allowed domain here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.clerk.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 }
 

@@ -1,11 +1,15 @@
-import { Avatar, AvatarImage } from "../ui/avatar"
+import Image from "next/image"
 
 const ProfilePhoto = ({ src }: { src: string }) => {
   return (
     <div>
-      <Avatar className="cursor-pointer">
-        <AvatarImage src={src} alt="Profile Image" />
-      </Avatar>
+      <Image
+        src={src ? src : "/banner.png"}
+        alt="Profile Image"
+        width={60}
+        height={60}
+        className="rounded-full border-2 "
+      />
     </div>
   )
 }

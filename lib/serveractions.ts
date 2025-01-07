@@ -13,6 +13,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
+//Create Post using server action
 export const createPostAction = async (
   inputText: string,
   selectedFile: string
@@ -52,5 +53,17 @@ export const createPostAction = async (
     }
   } catch (error: any) {
     throw new Error(error)
+  }
+}
+
+//Get all posts using server actions
+export const getAllPosts = async () => {
+  await connectDB()
+  try {
+    // fetch the post in created recent order
+    const posts = await Post.find().sort({ createdAt: -1 })
+    return JSON.parse(JSON.stringify(posts))
+  } catch (error) {
+    console.log(error)
   }
 }
