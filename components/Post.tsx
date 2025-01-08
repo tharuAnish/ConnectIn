@@ -32,7 +32,9 @@ const Post = ({ post }: { post: IPostDocument }) => {
                 You
               </Badge>
             </h1>
-            <p className="text-xs text-gray-500">@username</p>
+            <p className="text-xs text-gray-500 lowercase">
+              @{post ? `${post?.user?.firstName}` : "no_username"}
+            </p>
             <p className="text-xs text-gray-500">
               <ReactTimeAgo date={new Date(post.createdAt)} locale="en-US" />
             </p>

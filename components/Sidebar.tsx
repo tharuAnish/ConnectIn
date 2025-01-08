@@ -1,6 +1,5 @@
 import { getAllPosts } from "@/lib/serveractions"
 import Image from "next/image"
-import React from "react"
 
 const Sidebar = async ({ user }: { user: any }) => {
   const posts = await getAllPosts()
