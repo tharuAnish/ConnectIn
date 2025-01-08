@@ -51,14 +51,14 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
     <div>
       <div className="text-sm mx-2 p-2 flex items-center justify-between border-b border-gray-300">
         {likes && likes.length > 0 && (
-          <p className="text-xm text-gray-500 transition hover:text-blue-500 hover:underline hover:cursor-pointer">
+          <p className="text-xs text-gray-500 transition hover:text-blue-500 hover:underline hover:cursor-pointer">
             {likes.length} likes
           </p>
         )}
         {post.comments && post.comments.length > 0 && (
           <p
             onClick={() => setCommentOpen(!commentOpen)}
-            className="text-xm text-gray-500 hover:text-blue-500 hover:underline hover:cursor-pointer"
+            className="text-xs text-gray-500 hover:text-blue-500 hover:underline hover:cursor-pointer"
           >
             {post.comments.length} comment
           </p>
