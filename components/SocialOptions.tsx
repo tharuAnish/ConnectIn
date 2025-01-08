@@ -60,7 +60,7 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
             onClick={() => setCommentOpen(!commentOpen)}
             className="text-xm text-gray-500 hover:text-blue-500 hover:underline hover:cursor-pointer"
           >
-            {post.comments.length} message
+            {post.comments.length} comment
           </p>
         )}
       </div>
@@ -81,7 +81,7 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
           className="flex items-center gap-1 rounded-lg text-gray-600 hover:text-black"
         >
           <MessageCircleMore />
-          <p>Message</p>
+          <p>Comment</p>
         </Button>
         <Button
           variant={"ghost"}

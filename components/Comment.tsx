@@ -1,7 +1,12 @@
 import { ICommentDocument } from "@/models/comment.model"
 import React from "react"
 import ProfilePhoto from "./shared/ProfilePhoto"
-// import ReactTimeago from 'react-timeago'
+import ReactTimeAgo from "react-time-ago"
+import TimeAgo from "javascript-time-ago"
+import en from "javascript-time-ago/locale/en.json"
+
+// Register the locale once
+TimeAgo.addDefaultLocale(en)
 
 const Comment = ({ comment }: { comment: ICommentDocument }) => {
   return (
@@ -9,16 +14,15 @@ const Comment = ({ comment }: { comment: ICommentDocument }) => {
       <div className="mt-2 w-9 h-9">
         <ProfilePhoto src={comment?.user?.profilePhoto!} />
       </div>
-      <div className="flex flex-1 justify-between p-3 bg-[#F2F2F2]">
+      <div className="flex flex-1 justify-between p-3 rounded-lg bg-gray-100">
         <div>
           <h1 className="text-sm font-medium">{`${comment?.user?.firstName} ${comment?.user?.lastName}`}</h1>
-          <p className="tex-xm text-gray-500">@{comment?.user?.firstName}</p>
-          <p className="my-2">{comment.textMessage}</p>
+          <p className="text-xs text-gray-400">@{comment?.user?.firstName}</p>
+          <p className="my-2 text-sm text-gray-600">{comment.textMessage}</p>
         </div>
         <div>
           <p className="text-xs text-gray-500">
-            {/* <ReactTimeago date={new Date(comment.createdAt)} /> */}
-            <p>1 stJan 2025 </p>
+            <ReactTimeAgo date={new Date(comment.createdAt)} locale="en-US" />
           </p>
         </div>
       </div>

@@ -13,12 +13,13 @@ import en from "javascript-time-ago/locale/en.json"
 import { deletePostAction } from "@/lib/serveractions"
 import { useUser } from "@clerk/nextjs"
 
+// Register the locale once
+TimeAgo.addDefaultLocale(en)
+
 const Post = ({ post }: { post: IPostDocument }) => {
   const { user } = useUser()
   const fullName = post?.user?.firstName + " " + post?.user?.lastName
   const loggedInUser = user?.id === post?.user?.userId
-  // Register the locale
-  TimeAgo.addDefaultLocale(en)
 
   return (
     <div className="bg-white my-2 rounded-lg border">
