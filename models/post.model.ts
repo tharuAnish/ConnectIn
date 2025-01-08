@@ -1,21 +1,18 @@
-import mongoose, { Document, Model, Types } from "mongoose"
+import mongoose, { Document, Model } from "mongoose"
 import { IUser } from "./user.model"
 import { IComment } from "./comment.model"
-
 export interface IPost {
   description: string
   user: IUser
   imageUrl?: string
   likes?: string[]
-  comments?: Types.ObjectId[]
+  comments?: mongoose.Types.ObjectId[]
 }
-
 export interface IPostDocument extends IPost, Document {
   _id: string
   createdAt: Date
   updatedAt: Date
 }
-
 const postSchema = new mongoose.Schema<IPostDocument>(
   {
     description: {
@@ -56,6 +53,5 @@ const postSchema = new mongoose.Schema<IPostDocument>(
   },
   { timestamps: true }
 )
-
 export const Post: Model<IPostDocument> =
   mongoose.models?.Post || mongoose.model<IPostDocument>("Post", postSchema)

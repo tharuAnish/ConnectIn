@@ -123,13 +123,8 @@ export const createCommentAction = async (
       user: userDatabase,
     })
 
-    // Use comment._id properly by asserting the type
-    const commentId = comment._id as mongoose.Types.ObjectId // Type assertion
-
-    // Push the comment._id (which is an ObjectId) into the post's comments array
-    post.comments?.push(commentId)
-
-    // Save the post with the updated comments array
+    // Explicitly cast _id as ObjectId
+    post.comments?.push(comment._id as mongoose.Types.ObjectId)
     await post.save()
 
     revalidatePath("/")

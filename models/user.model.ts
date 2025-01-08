@@ -1,5 +1,4 @@
 import mongoose, { Document, Model } from "mongoose"
-
 export interface IUser {
   firstName: string
   lastName: string
@@ -7,12 +6,10 @@ export interface IUser {
   profilePhoto?: string
   bio?: string
 }
-
 export interface IUserDocument extends IUser, Document {
   createdAt: Date
   updatedAt: Date
 }
-
 const userSchema = new mongoose.Schema<IUserDocument>(
   {
     firstName: {
@@ -27,6 +24,7 @@ const userSchema = new mongoose.Schema<IUserDocument>(
       type: String,
       required: true,
     },
+
     profilePhoto: {
       type: String,
       default: "",
@@ -38,6 +36,5 @@ const userSchema = new mongoose.Schema<IUserDocument>(
   },
   { timestamps: true }
 )
-
 export const User: Model<IUserDocument> =
   mongoose.models?.User || mongoose.model<IUserDocument>("User", userSchema)
