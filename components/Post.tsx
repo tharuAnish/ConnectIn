@@ -55,7 +55,7 @@ const Post = ({ post }: { post: IPostDocument }) => {
       </div>
 
       <PostContent post={post} />
-      <SocialOptions />
+      <SocialOptions post={post} />
     </div>
   )
 }
