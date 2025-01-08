@@ -11,6 +11,7 @@ export interface IPost {
 }
 
 export interface IPostDocument extends IPost, Document {
+  _id: string
   createdAt: Date
   updatedAt: Date
 }

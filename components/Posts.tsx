@@ -4,7 +4,7 @@ import { IPostDocument } from "@/models/post.model"
 const Posts = ({ posts }: { posts: IPostDocument[] }) => {
   return (
     <div>
-      {posts?.map((post, index) => (
+      {posts?.map((post) => (
         <Post key={post._id} post={post} />
       ))}
     </div>
