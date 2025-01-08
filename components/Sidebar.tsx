@@ -1,7 +1,9 @@
+import { getAllPosts } from "@/lib/serveractions"
 import Image from "next/image"
 import React from "react"
 
-const Sidebar = ({ user }: { user: any }) => {
+const Sidebar = async ({ user }: { user: any }) => {
+  const posts = await getAllPosts()
   return (
     <div className="hidden md:block w-[20%] border  bg-white rounded-xl h-fit">
       <div className="flex relative flex-col items-center">
@@ -44,7 +46,7 @@ const Sidebar = ({ user }: { user: any }) => {
         </div>
         <div className="w-full flex gap-2 justify-between items-center px-3 py-2 hover:bg-gray-200  cursor-pointer">
           <p>Post </p>
-          <p className="text-blue-500 font-bold">0</p>
+          <p className="text-blue-500 font-bold">{posts.length}</p>
         </div>
       </div>
     </div>
