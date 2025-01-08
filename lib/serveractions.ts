@@ -7,6 +7,7 @@ import { v2 as cloudinary } from "cloudinary"
 import connectDB from "./db"
 import { revalidatePath } from "next/cache"
 import { Comment } from "@/models/comment.model"
+import mongoose from "mongoose"
 
 // Configure Cloudinary
 cloudinary.config({
@@ -122,7 +123,13 @@ export const createCommentAction = async (
       user: userDatabase,
     })
 
-    post.comments?.push(comment._id)
+    // Use comment._id properly by asserting the type
+    const commentId = comment._id as mongoose.Types.ObjectId // Type assertion
+
+    // Push the comment._id (which is an ObjectId) into the post's comments array
+    post.comments?.push(commentId)
+
+    // Save the post with the updated comments array
     await post.save()
 
     revalidatePath("/")
