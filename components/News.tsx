@@ -119,7 +119,7 @@ export function TrendingSection() {
 
         {/* Puzzles */}
         <div>
-          <h2 className="font-medium mb-3">Today&apos;s puzzles</h2>
+          <h2 className="font-medium mb-3">Todays puzzles</h2>
           <div className="grid gap-2">
             {puzzles.map((puzzle, index) => (
               <div
