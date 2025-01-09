@@ -18,15 +18,18 @@ const Post = ({ post }: { post: IPostDocument }) => {
   const loggedInUser = user?.id === post?.user?.userId
 
   return (
-    <div className="bg-white my-2 rounded-lg border">
+    <div className="bg-white rounded-xl border">
       <div className="flex gap-2 p-4">
         <ProfilePhoto src={post.user?.profilePhoto!} />
         <div className="flex items-center justify-between w-full">
           <div>
             <h1 className="text-sm font-bold">
               {fullName}
-              <Badge variant={"outline"} className="ml-2">
-                You
+              <Badge
+                variant={"outline"}
+                className="ml-2 font-normal  text-gray-500"
+              >
+                Author
               </Badge>
             </h1>
             <p className="text-xs text-gray-500 lowercase">

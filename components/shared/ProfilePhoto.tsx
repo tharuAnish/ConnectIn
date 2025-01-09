@@ -3,13 +3,16 @@ import Image from "next/image"
 const ProfilePhoto = ({ src }: { src: string }) => {
   return (
     <div>
-      <Image
-        src={src ? src : "/banner.png"}
-        alt="Profile Image"
-        width={60}
-        height={60}
-        className="rounded-full border-2 "
-      />
+      <div className="h-12 w-12  rounded-full overflow-hidden  bg-gray-200">
+        <Image
+          src={src || "/profile_placeholder.png"}
+          alt="Profile Image"
+          width={120}
+          height={120}
+          loading="lazy"
+          className=""
+        />
+      </div>
     </div>
   )
 }
