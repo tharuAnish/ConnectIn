@@ -38,7 +38,7 @@ const trendingNews: TrendingNews[] = [
     readers: 622,
   },
   {
-    title: "Will planning for India's rich",
+    title: "Will planning for Indias rich",
     timeAgo: "6h ago",
     readers: 486,
   },
@@ -119,7 +119,7 @@ export function TrendingSection() {
 
         {/* Puzzles */}
         <div>
-          <h2 className="font-medium mb-3">Today's puzzles</h2>
+          <h2 className="font-medium mb-3">Todays puzzles</h2>
           <div className="grid gap-2">
             {puzzles.map((puzzle, index) => (
               <div
