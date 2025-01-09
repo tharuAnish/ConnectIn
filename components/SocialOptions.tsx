@@ -70,9 +70,19 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
           variant={"ghost"}
           className="flex items-center gap-1 rounded-lg text-gray-600 hover:text-black"
         >
-          <ThumbsUp className={`${liked && "fill-[#378FE9]  text-blue-700"}`} />
-          <p className={`${liked && "text-[#378FE9]"}`}>
-            {liked ? "Liked" : "Like"}
+          <ThumbsUp
+            className={`${
+              likes && likes.length > 0 && "fill-[#378FE9]  text-blue-600"
+            }`}
+          />
+          <p
+            className={`${
+              likes && likes.length > 0
+                ? "text-[#378FE9] hidden md:block"
+                : "hidden md:block"
+            }`}
+          >
+            {likes && likes.length > 0 ? "Liked" : "Like"}
           </p>
         </Button>
         <Button
@@ -81,21 +91,21 @@ const SocialOptions = ({ post }: { post: IPostDocument }) => {
           className="flex items-center gap-1 rounded-lg text-gray-600 hover:text-black"
         >
           <MessageCircleMore />
-          <p>Comment</p>
+          <p className="hidden md:block">Comment</p>
         </Button>
         <Button
           variant={"ghost"}
-          className="flex items-center gap-1 rounded-lg text-gray-600 hover:text-black"
+          className="flex items-center  gap-1 rounded-lg text-gray-600 hover:text-black"
         >
           <Repeat />
-          <p>Repost</p>
+          <p className="hidden md:block">Repost</p>
         </Button>
         <Button
           variant={"ghost"}
           className="flex items-center gap-1 rounded-lg text-gray-600 hover:text-black"
         >
           <Send />
-          <p>Send</p>
+          <p className="hidden md:block">Send</p>
         </Button>
       </div>
       {commentOpen && (

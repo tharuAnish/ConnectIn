@@ -1,32 +1,56 @@
 "use client"
 
+import { useState } from "react"
 import { useUser } from "@clerk/nextjs"
-import ProfilePhoto from "./shared/ProfilePhoto"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { createCommentAction } from "@/lib/serveractions"
+import Image from "next/image"
 
 const CommentInput = ({ postId }: { postId: string }) => {
   const { user } = useUser()
+  const [comment, setComment] = useState("")
 
+  // Handle form submission
   const commentActionHandler = async (formData: FormData) => {
     try {
       if (!user) throw new Error("User not authenticated")
       await createCommentAction(postId, formData)
+      setComment("") // Reset the input field after successful comment submission
     } catch (error: any) {
-      throw new Error("An error occured", error)
+      console.error("An error occurred:", error)
     }
   }
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setComment(event.target.value)
+  }
+
   return (
-    <form action={(formData) => commentActionHandler(formData)}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault() // Prevent default form submission behavior
+        const formData = new FormData()
+        formData.append("inputText", comment)
+        commentActionHandler(formData)
+      }}
+    >
       <div className="flex items-center gap-2">
-        <div className="w-9 h-9 flex-shrink-0 ">
-          <ProfilePhoto src={user?.imageUrl!} />
+        <div className="flex-shrink-0">
+          <Image
+            src={user?.imageUrl! || "/profile_placeholder.png"}
+            alt="Profile Image"
+            width={120}
+            height={120}
+            loading="lazy"
+            className="w-9 h-9 rounded-full object-cover"
+          />
         </div>
         <Input
-          type="textx"
+          type="text"
+          value={comment}
           name="inputText"
+          onChange={handleInputChange} // Update the state as the user types
           placeholder="Add a comment"
           className="rounded-full"
         />

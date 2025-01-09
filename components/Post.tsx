@@ -18,7 +18,7 @@ const Post = ({ post }: { post: IPostDocument }) => {
   const loggedInUser = user?.id === post?.user?.userId
 
   return (
-    <div className="bg-white rounded-xl border">
+    <div className="bg-white rounded-xl border ">
       <div className="flex gap-2 p-4">
         <ProfilePhoto src={post.user?.profilePhoto!} />
         <div className="flex items-center justify-between w-full">

@@ -6,7 +6,7 @@ const SearchInput = () => {
       <Input
         type="textx"
         placeholder="search"
-        className="bg-[#EDF3F8] w-80 rounded-lg border-none"
+        className="bg-[#EDF3F8] focus-visible:ring-0 w-80 rounded-lg border-none"
       />
     </div>
   )

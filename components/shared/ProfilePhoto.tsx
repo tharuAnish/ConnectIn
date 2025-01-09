@@ -10,7 +10,6 @@ const ProfilePhoto = ({ src }: { src: string }) => {
           width={120}
           height={120}
           loading="lazy"
-          className=""
         />
       </div>
     </div>

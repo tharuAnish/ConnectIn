@@ -8,14 +8,14 @@ export default async function Home() {
 
   return (
     <div className="pt-20">
-      <div className="max-w-6xl mx-auto grid grid-cols-12 gap-5">
-        <div className="col-span-3">
+      <div className="max-w-6xl mx-auto md:grid md:grid-cols-12 gap-5">
+        <div className="col-span-3 hidden md:block">
           <Sidebar user={user} />
         </div>
-        <div className="col-span-6">
+        <div className="col-span-6 ">
           <Feed user={user} />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-3 hidden md:block">
           <TrendingSection />
         </div>
       </div>
