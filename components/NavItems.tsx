@@ -20,22 +20,22 @@ const navItems: NAVITEMS[] = [
     text: "Home",
   },
   {
-    src: "/networks",
+    src: "/",
     icon: <Users size={19} />,
     text: "My Network",
   },
   {
-    src: "/job",
+    src: "/",
     icon: <BriefcaseBusiness size={19} />,
     text: "Jobs",
   },
   {
-    src: "/message",
+    src: "/",
     icon: <MessageCircleMore size={19} />,
     text: "Messaging",
   },
   {
-    src: "/notification",
+    src: "/",
     icon: <Bell size={19} />,
     text: "Notification",
   },

@@ -7,20 +7,18 @@ const Sidebar = async ({ user }: { user: any }) => {
     <div className="hidden md:block w-[20%] border  bg-white rounded-xl h-fit">
       <div className="flex relative flex-col items-center">
         <div className="w-full h-16 overflow-hidden">
-          {user && (
-            <Image
-              src={"/banner.png"}
-              alt="Banner"
-              width={200}
-              height={200}
-              className="w-full h-full rounded-t-xl"
-            />
-          )}
+          <Image
+            src={"/banner.png"}
+            alt="Banner"
+            width={200}
+            height={200}
+            className="w-full h-full rounded-t-xl"
+          />
         </div>
 
         <div className="my-1 absolute top-7">
           <Image
-            src={user ? user?.imageUrl : "/banner.png"}
+            src={user ? user?.imageUrl : "/profile_placeholder.png"}
             alt="Profile Image"
             width={60}
             height={60}

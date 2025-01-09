@@ -2,11 +2,7 @@ import { ICommentDocument } from "@/models/comment.model"
 import React from "react"
 import ProfilePhoto from "./shared/ProfilePhoto"
 import ReactTimeAgo from "react-time-ago"
-import TimeAgo from "javascript-time-ago"
-import en from "javascript-time-ago/locale/en.json"
-
-// Register the locale once
-TimeAgo.addDefaultLocale(en)
+import "@/components/shared/TimeAgo.config"
 
 const Comment = ({ comment }: { comment: ICommentDocument }) => {
   return (

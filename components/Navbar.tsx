@@ -1,9 +1,7 @@
 import Image from "next/image"
-import React from "react"
 import SearchInput from "./SearchInput"
 import NavItems from "./NavItems"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
-import { Button } from "./ui/button"
 import Link from "next/link"
 
 const Navbar = () => {
@@ -33,9 +31,9 @@ const Navbar = () => {
               <UserButton />
             </SignedIn>
             <SignedOut>
-              <Button className="rounded-full" variant={"secondary"}>
+              <div className="rounded-full text-sm text-gray-500 border p-[6px] px-4 transition hover:bg-gray-100">
                 <SignInButton />
-              </Button>
+              </div>
             </SignedOut>
           </div>
         </div>

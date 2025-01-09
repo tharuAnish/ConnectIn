@@ -7,14 +7,10 @@ import PostContent from "./PostContent"
 import SocialOptions from "./SocialOptions"
 import { IPostDocument } from "@/models/post.model"
 import ProfilePhoto from "./shared/ProfilePhoto"
-import ReactTimeAgo from "react-time-ago"
-import TimeAgo from "javascript-time-ago"
-import en from "javascript-time-ago/locale/en.json"
 import { deletePostAction } from "@/lib/serveractions"
 import { useUser } from "@clerk/nextjs"
-
-// Register the locale once
-TimeAgo.addDefaultLocale(en)
+import ReactTimeAgo from "react-time-ago"
+import "@/components/shared/TimeAgo.config"
 
 const Post = ({ post }: { post: IPostDocument }) => {
   const { user } = useUser()
